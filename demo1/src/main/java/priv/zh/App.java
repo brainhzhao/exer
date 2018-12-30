@@ -1,13 +1,22 @@
 package priv.zh;
 
-/**
- * Hello world!
- *
- */
+import priv.zh.model.HelloWorld;
+import priv.zh.model.HelloWorldService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/*
+@author SilenceZhao
+@propose exer Spring
+*/
+
 public class App  
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World123!" ); 
+        ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
+        HelloWorldService service=(HelloWorldService)context.getBean("helloWorldService");
+        HelloWorld helloWorld=service.getHelloWorld();
+        helloWorld.sayHello();
     }
 }
