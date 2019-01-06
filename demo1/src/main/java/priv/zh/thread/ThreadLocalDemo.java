@@ -13,11 +13,11 @@ import java.lang.Runnable;
 
 public class ThreadLocalDemo{
 
-    //实例化一个线程私有变量的对象生成器
+    //实例化一个线程私有变量的对象生成器,测试一波
     private ThreadLocal<Integer> seqNum=new ThreadLocal<Integer>(){
         @Override
         public Integer initialValue(){
-            return 0;
+            return 0; 
         }
     };
     
