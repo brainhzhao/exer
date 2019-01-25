@@ -20,7 +20,7 @@ public class App
         HelloWorld helloWorld=service.getHelloWorld();
         helloWorld.sayHello();
         */
-        JasperCompileManager.compileReportToFile("/media/heng/SilenceZhao/code/java/zhdemo/demo1/target/classes/PISA_BASELIST.jrxml", "/media/heng/SilenceZhao/pingan_app/SmartThemis/SmartThemis_src/webapp/WEB-INF/jasper/PISA_BASELIST.jasper");
+        JasperCompileManager.compileReportToFile("/media/heng/SilenceZhao/code/java/zhdemo/demo1/target/classes/PISA_SJBL.jrxml", "/media/heng/SilenceZhao/code/java/zhdemo/demo1/target/classes/PISA_SJBL.jasper");
         System.out.println("ok");
     }
 }
