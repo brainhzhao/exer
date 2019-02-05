@@ -5,7 +5,7 @@
   
     <bean id="springHelloWorld" class="priv.zh.service.SpringHelloWorld"></bean>
     <bean id="strutsHelloWorld" class="priv.zh.service.StructHelloWorld"></bean> 
-    <bean id="helloWorldService" class="priv.zh.model.HelloWorldService">
+    <bean id="helloWorldService" class="priv.zh.model.HelloWorldService" singleton="true">
         <property name="helloWorld" ref="strutsHelloWorld"/>
     </bean>
 </beans>
