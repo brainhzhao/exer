@@ -29,7 +29,7 @@ public class ReadWriteLockDemo{
     }
 
     public void exec(){
-         ReentrantLockDemo.Count ct=new ReentrantLockDemo().new Count();
+        final ReentrantLockDemo.Count ct=new ReentrantLockDemo().new Count();
          for (int i=0;i<2;i++){
             new Thread(){
                 public void run(){
