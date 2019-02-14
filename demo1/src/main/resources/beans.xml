@@ -1,11 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
   
     <bean id="springHelloWorld" class="priv.zh.service.SpringHelloWorld"></bean>
-    <bean id="strutsHelloWorld" class="priv.zh.service.StructHelloWorld"></bean> 
-    <bean id="helloWorldService" class="priv.zh.model.HelloWorldService" singleton="true">
+    <!-- <bean id="helloWorldService" name="aliashello" class="priv.zh.model.HelloWorldService"  scope="prototype">
         <property name="helloWorld" ref="strutsHelloWorld"/>
+    </bean> -->
+    <bean id="constructHelloWorldService" class="priv.zh.model.HelloWorldService">
+       <constructor-arg index="0" ref="strutsHelloWorld"/>
     </bean>
+    <bean id="strutsHelloWorld" class="priv.zh.service.StructHelloWorld"></bean> 
+
 </beans>

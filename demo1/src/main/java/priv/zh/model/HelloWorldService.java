@@ -1,23 +1,34 @@
 package priv.zh.model;
 
+import org.springframework.beans.factory.InitializingBean;;
 
-public class HelloWorldService{
+public class HelloWorldService implements InitializingBean {
     private HelloWorld helloWorld;
-    private int count=0;
-    public HelloWorldService(){
+    private int count = 0;
 
-    }
-    
-    public void setHelloWorld(HelloWorld helloWorld){
-        this.helloWorld=helloWorld;
+    @Override
+    public void afterPropertiesSet() {
+        System.out.println("init method");
     }
 
-    public HelloWorld getHelloWorld(){
+    public HelloWorldService() {
+
+    }
+
+    public HelloWorldService(HelloWorld helloWorld) {
+        this.helloWorld = helloWorld;
+    }
+
+    public void setHelloWorld(HelloWorld helloWorld) {
+        this.helloWorld = helloWorld;
+    }
+
+    public HelloWorld getHelloWorld() {
         return this.helloWorld;
     }
 
-    public void addCount(){
+    public void addCount() {
         count++;
-        System.out.println("count is "+count);
+        System.out.println("count is " + count);
     }
 }
