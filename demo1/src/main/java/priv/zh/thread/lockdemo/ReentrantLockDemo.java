@@ -19,7 +19,7 @@ public class ReentrantLockDemo {
     }
 
     public void exec(){
-        Count ct=new Count();
+        final Count ct=new Count();
         for (int i=0;i<2;i++){
             new Thread(){
                 public void run(){
