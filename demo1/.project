@@ -2,7 +2,7 @@
 <projectDescription>
 	<name>demo1</name>
 	<comment></comment>
-	<projects> 
+	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -10,7 +10,7 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand> 
+		<buildCommand>
 			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
 			</arguments>
