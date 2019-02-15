@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>priv.zh</groupId>
-  <artifactId>demo1</artifactId>
+  <artifactId>java</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>demo1</name>
+  <name>java</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
