@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-  
+
   <properties resource="">
      <property name="driver" value="com.mysql.jdbc.Driver"/>
      <property name="url" value="jdbc:mysql://127.0.0.1:3306/hengtest"/>
@@ -29,4 +29,5 @@
   <mappers>
     <mapper resource="mybatis/sqlmapper/Demo1Mapper.xml"/>
   </mappers>
+
 </configuration>

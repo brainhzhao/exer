@@ -1,6 +1,7 @@
 package priv.zh.dbframe.mybatis;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.io.IOException;
 
 import org.apache.ibatis.io.Resources;
@@ -14,7 +15,10 @@ public class MybatisDemo{
         SqlSessionFactory ssf=getSqlSessionFactoryByXml("mybatis/mybatis-cfg.xml");
         SqlSession ss=ssf.openSession();
         try {
-           System.out.println(ss.selectList("a.selectBlog"));
+           HashMap<Object,Object> paramMap=new HashMap<>();
+           paramMap.put("stuid","1");
+           paramMap.put("stuname","2121");
+           System.out.println(ss.selectList("StudentMapper.selectStudent",paramMap));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally{
