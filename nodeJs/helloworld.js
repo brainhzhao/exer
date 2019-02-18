@@ -96,5 +96,9 @@ try {
 }
 
 (function(){
-   console.log(this);
-})()
+   function hi(){
+       console.log(this);
+   }
+   hi();
+   console.log(arguments);
+})(global)

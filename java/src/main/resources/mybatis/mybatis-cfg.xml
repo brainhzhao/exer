@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  
+  <properties resource="">
+     <property name="driver" value="com.mysql.jdbc.Driver"/>
+     <property name="url" value="jdbc:mysql://127.0.0.1:3306/hengtest"/>
+     <property name="username" value="smartdp"/>
+     <property name="password" value="smartdp"/>
+  </properties>
+
+  <typeAliases>
+     <typeAlias alias="Student" type="priv.zh.model.Student"></typeAlias>
+  </typeAliases>
+ 
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="mybatis/sqlmapper/Demo1Mapper.xml"/>
+  </mappers>
+</configuration>
