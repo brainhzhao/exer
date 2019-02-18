@@ -37,10 +37,10 @@ public class AddConference extends JFrame{
 	private ConferenceInterface addConference;
 	private UserModel user;
 	public AddConference(UserModel user){		
-		super("Ìí¼ÓĞÂ»áÒéĞÅÏ¢");
+		super("æ·»åŠ æ–°ä¼šè®®ä¿¡æ¯");
 		container=this.getContentPane();
 		this.setBounds(570,100,700,500);
-		this.add("South",new JPanel(new GridLayout(1,3)).add(new JLabel("                                                                       »¶Ó­Ê¹ÓÃ»áÒéÊÒÔ¤Ô¼ÏµÍ³")));
+		this.add("South",new JPanel(new GridLayout(1,3)).add(new JLabel("                                                                       æ¬¢è¿ä½¿ç”¨ä¼šè®®å®¤é¢„çº¦ç³»ç»Ÿ")));
                		
 	    contentPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
 		conferenceTitle=new JTextArea(10,40);
@@ -61,30 +61,30 @@ public class AddConference extends JFrame{
 	    sdf=new SimpleDateFormat("yyyy MM dd HH:mm");
 		
 		
-		contentPanel.add(new JLabel("ÃèÊö±¾´Î»áÒéµÄ±êÇ©"));
+		contentPanel.add(new JLabel("æè¿°æœ¬æ¬¡ä¼šè®®çš„æ ‡ç­¾"));
 		contentPanel.add(new JLabel("                                                "));
 		contentPanel.add(conferenceTitle);
 		contentPanel.add(new JLabel("                                                               "));
-		contentPanel.add(new JLabel("»áÒé¿ªÊ¼Ê±¼ä£º"));
+		contentPanel.add(new JLabel("ä¼šè®®å¼€å§‹æ—¶é—´ï¼š"));
 		contentPanel.add(new JLabel("                 "));
 		contentPanel.add(startJspinner);
 		contentPanel.add(new JLabel("                                                                                                                        "));
-		contentPanel.add(new JLabel("»áÒé½áÊøÊ±¼ä£º"));
+		contentPanel.add(new JLabel("ä¼šè®®ç»“æŸæ—¶é—´ï¼š"));
 		contentPanel.add(new JLabel("                 "));
 		contentPanel.add(endJspinner);
 		contentPanel.add(new JLabel("                                                                                                                       "));
-		contentPanel.add(new JLabel("²Î¼Ó»áÒéÈËÔ±£º"));
+		contentPanel.add(new JLabel("å‚åŠ ä¼šè®®äººå‘˜ï¼š"));
 		contentPanel.add(new JLabel("                 "));
 		contentPanel.add(joinPerson);
 		contentPanel.add(new JLabel("                                              "));
-		submit=new JButton("Ìá½»");
+		submit=new JButton("æäº¤");
 		submit.setBackground(Color.RED);
 		submit.addActionListener(new EventHandler());
 		contentPanel.add(submit);
 	    this.addWindowListener(new WindowAdapter() {  
             public void windowClosing(WindowEvent e) {  
                 AddConference.this.setVisible(false);
-                               //¼ÓÈë¶¯×÷   
+                               //åŠ å…¥åŠ¨ä½œ   
 			}  
         });
 		this.add(contentPanel);
@@ -93,11 +93,11 @@ public class AddConference extends JFrame{
 		
 		
 		alertString=new JLabel("");
-		dialog=new JDialog(AddConference.this,"ÌáÊ¾",true);
+		dialog=new JDialog(AddConference.this,"æç¤º",true);
 		dialog.setBounds(590,130,265,220);
 		dialog.setResizable(false);
 		dialog.add(alertString);
-		dialogButton=new JButton("È·¶¨");
+		dialogButton=new JButton("ç¡®å®š");
 		dialogButton.addActionListener(new EventHandler());
 		dialog.add("South",new JPanel(new FlowLayout(FlowLayout.RIGHT)).add(dialogButton));
 		dialog.setDefaultCloseOperation(HIDE_ON_CLOSE );
@@ -110,30 +110,30 @@ public class AddConference extends JFrame{
 		}
 		catch(Exception e){
 			
-			alert(String.format("Òì³£ÏûÏ¢:\n%s",e.getMessage()));
+			alert(String.format("å¼‚å¸¸æ¶ˆæ¯:\n%s",e.getMessage()));
 		} 
 	}
 	public static void main(String[] args){
 		
-		new AddConference(new UserModel("ÕÔºã","123"));
+		new AddConference(new UserModel("èµµæ’","123"));
 	}
 	public void alert(String content){
 		alertString.setText(content);
 	    dialog.setVisible(true);			
 	}
-	//ÊÂ¼ş´¦ÀíÄÚ²¿Àà
+	//äº‹ä»¶å¤„ç†å†…éƒ¨ç±»
 	private class EventHandler implements ActionListener{	
 		public void actionPerformed(ActionEvent e){
 		     if(e.getSource()==submit){
 				 if(conferenceTitle.getText().equals("")){
-					 alert("ÇëÌîĞ´»áÒé±êÌâ");
+					 alert("è¯·å¡«å†™ä¼šè®®æ ‡é¢˜");
 					 return;
 				 }
 				 try{
 					 start=sdf.parse(sdf.format(startJspinner.getValue()));
 					 end=sdf.parse(sdf.format(endJspinner.getValue()));
 					 if(start.getTime()>end.getTime()){
-						 alert("ÆğÊ¼Ê±¼ä´óÓÚÖÕÖ¹Ê±¼ä");
+						 alert("èµ·å§‹æ—¶é—´å¤§äºç»ˆæ­¢æ—¶é—´");
 						 return;
 					 }
 				 }
@@ -141,19 +141,19 @@ public class AddConference extends JFrame{
 					 return;
 				 }
 				 if(joinPerson.getText().equals("")){
-					 alert("ÇëÊäÈëÖÁÉÙÒ»¸ö²Î»áÈËÔ±");
+					 alert("è¯·è¾“å…¥è‡³å°‘ä¸€ä¸ªå‚ä¼šäººå‘˜");
 					 return;
 				 }
 				 ConferenceModel model=new ConferenceModel(conferenceTitle.getText(),sdf.format(startJspinner.getValue()),sdf.format(endJspinner.getValue()),joinPerson.getText());
 				 model.setUserId(user.getId());
 				 try{
 					 if(addConference.isCash(model)){
-						 alert("Ê±¼äÉÏ·¢Éú³åÍ»");
+						 alert("æ—¶é—´ä¸Šå‘ç”Ÿå†²çª");
 						 return;
 					 }
 					 else{
 						 if(addConference.addConference(model)){
-							 alert("Ìí¼Ó³É¹¦!");
+							 alert("æ·»åŠ æˆåŠŸ!");
 							 //return;
 						 }
 					 }

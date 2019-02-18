@@ -30,30 +30,30 @@ public class UserMainView extends JFrame{
 	private AddConference addConference;
 	private ConferenceInterface deleteCon;
 	public UserMainView(UserModel user){		
-		super("ÓÃ»§Ö÷Ò³");
+		super("ç”¨æˆ·ä¸»é¡µ");
 		this.user=user;
 		container=this.getContentPane();
 		this.setBounds(570,100,400,370);
-		this.add("South",new JPanel(new GridLayout(1,3)).add(new JLabel("                                           »¶Ó­Ê¹ÓÃ»áÒéÊÒÔ¤Ô¼ÏµÍ³")));
+		this.add("South",new JPanel(new GridLayout(1,3)).add(new JLabel("                                           æ¬¢è¿ä½¿ç”¨ä¼šè®®å®¤é¢„çº¦ç³»ç»Ÿ")));
                		
 	    contentPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
 		conId=new JTextField(20);
-		contentPanel.add(new JLabel("ÇëÊäÈëĞèÒªÉ¾³ıµÄ»áÒéºÅ"));
+		contentPanel.add(new JLabel("è¯·è¾“å…¥éœ€è¦åˆ é™¤çš„ä¼šè®®å·"));
 		contentPanel.add(new JLabel("                                                "));
 		contentPanel.add(conId);
 		contentPanel.add(new JLabel("                                                "));
 		
 		
 		
-		submit=new JButton("É¾³ı");
+		submit=new JButton("åˆ é™¤");
 		submit.setBackground(Color.RED);
 		submit.addActionListener(new EventHandler());
 		
-		see=new JButton("²Î¿´»áÒé¼ÇÂ¼");
+		see=new JButton("å‚çœ‹ä¼šè®®è®°å½•");
 		see.setBackground(Color.RED);
 		see.addActionListener(new EventHandler());
 		
-		add=new JButton("Ìí¼Ó»áÒé");
+		add=new JButton("æ·»åŠ ä¼šè®®");
 		add.setBackground(Color.RED);
 		add.addActionListener(new EventHandler());
 		
@@ -66,11 +66,11 @@ public class UserMainView extends JFrame{
 		this.setResizable(false);
 		
 		alertString=new JLabel("");
-		dialog=new JDialog(UserMainView.this,"ÌáÊ¾",true);
+		dialog=new JDialog(UserMainView.this,"æç¤º",true);
 		dialog.setBounds(590,130,265,220);
 		dialog.setResizable(false);
 		dialog.add(alertString);
-		dialogButton=new JButton("È·¶¨");
+		dialogButton=new JButton("ç¡®å®š");
 		dialogButton.addActionListener(new EventHandler());
 		dialog.add("South",new JPanel(new FlowLayout(FlowLayout.RIGHT)).add(dialogButton));
 		dialog.setDefaultCloseOperation(HIDE_ON_CLOSE  );
@@ -82,11 +82,11 @@ public class UserMainView extends JFrame{
 		}
 		catch(Exception e){
 			
-			//alert(String.format("Òì³£ÏûÏ¢:\n%s",e.getMessage()));
+			//alert(String.format("å¼‚å¸¸æ¶ˆæ¯:\n%s",e.getMessage()));
 		} 
 		
 	}
-	//ÊÂ¼ş´¦ÀíÄÚ²¿Àà
+	//äº‹ä»¶å¤„ç†å†…éƒ¨ç±»
 	private class EventHandler implements ActionListener{	
 		public void actionPerformed(ActionEvent e){
 			if(e.getSource()==dialogButton){
@@ -101,13 +101,13 @@ public class UserMainView extends JFrame{
                				
 						///container.setVisible(false);	
 						if(conId.getText().equals("")){
-							alertString.setText("               ÇëÊäÈëÒªÉ¾³ıµÄ»áÒéºÅÂë!");
+							alertString.setText("               è¯·è¾“å…¥è¦åˆ é™¤çš„ä¼šè®®å·ç !");
 							dialog.setVisible(true);	
 							return;		
 						}
 						else{
 							if(deleteCon.deleteConference(Integer.parseInt(conId.getText()))){
-								alertString.setText("               É¾³ı³É¹¦£¡");
+								alertString.setText("               åˆ é™¤æˆåŠŸï¼");
 								dialog.setVisible(true);	
 								return;	
 							} 

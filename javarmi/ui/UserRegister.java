@@ -28,10 +28,10 @@ public class UserRegister extends JFrame{
 	private JButton dialogButton;
 	private ConferenceInterface userRegister;
 	public UserRegister(){		
-		super("ĞÂÓÃ»§×¢²á");
+		super("æ–°ç”¨æˆ·æ³¨å†Œ");
 		container=this.getContentPane();
 		this.setBounds(570,100,400,370);
-		this.add("South",new JPanel(new GridLayout(1,3)).add(new JLabel("                                           »¶Ó­Ê¹ÓÃ»áÒéÊÒÔ¤Ô¼ÏµÍ³")));
+		this.add("South",new JPanel(new GridLayout(1,3)).add(new JLabel("                                           æ¬¢è¿ä½¿ç”¨ä¼šè®®å®¤é¢„çº¦ç³»ç»Ÿ")));
                		
 	    contentPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
 		userName=new JTextField(20);
@@ -39,19 +39,19 @@ public class UserRegister extends JFrame{
 		secPassword=new JPasswordField(20);
 		password.addActionListener(new EventHandler());
 		secPassword.addActionListener(new EventHandler());
-		contentPanel.add(new JLabel("ÓÃ»§Ãû"));
+		contentPanel.add(new JLabel("ç”¨æˆ·å"));
 		contentPanel.add(new JLabel("                                                "));
 		contentPanel.add(userName);
-		contentPanel.add(new JLabel("*ÇëÊäÈëÓÃ»§Ãû                       "));
-		contentPanel.add(new JLabel("ÃÜÂë")); 
+		contentPanel.add(new JLabel("*è¯·è¾“å…¥ç”¨æˆ·å                       "));
+		contentPanel.add(new JLabel("å¯†ç ")); 
 		contentPanel.add(new JLabel("                                               "));
 		contentPanel.add(password);
-		contentPanel.add(new JLabel("*ÇëÊäÈëÃÜÂë             "));
-		contentPanel.add(new JLabel("È·ÈÏÃÜÂë"));
+		contentPanel.add(new JLabel("*è¯·è¾“å…¥å¯†ç              "));
+		contentPanel.add(new JLabel("ç¡®è®¤å¯†ç "));
 		contentPanel.add(new JLabel("                                                    "));
 		contentPanel.add(secPassword);
-		contentPanel.add(new JLabel("*ÇëÔÙ´ÎÊäÈëÃÜÂë         "));
-		submit=new JButton("×¢²á");
+		contentPanel.add(new JLabel("*è¯·å†æ¬¡è¾“å…¥å¯†ç          "));
+		submit=new JButton("æ³¨å†Œ");
 		submit.setBackground(Color.RED);
 		submit.addActionListener(new EventHandler());
 		contentPanel.add(submit);
@@ -60,11 +60,11 @@ public class UserRegister extends JFrame{
 		this.setVisible(true);
 		this.setResizable(false);
 		alertString=new JLabel("");
-		dialog=new JDialog(UserRegister.this,"ÌáÊ¾",true);
+		dialog=new JDialog(UserRegister.this,"æç¤º",true);
 		dialog.setBounds(590,130,265,220);
 		dialog.setResizable(false);
 		dialog.add(alertString);
-		dialogButton=new JButton("È·¶¨");
+		dialogButton=new JButton("ç¡®å®š");
 		dialogButton.addActionListener(new EventHandler());
 		dialog.add("South",new JPanel(new FlowLayout(FlowLayout.RIGHT)).add(dialogButton));
 		dialog.setDefaultCloseOperation(HIDE_ON_CLOSE  );
@@ -76,7 +76,7 @@ public class UserRegister extends JFrame{
 		}
 		catch(Exception e){
 			
-			alert(String.format("Òì³£ÏûÏ¢:\n%s",e.getMessage()));
+			alert(String.format("å¼‚å¸¸æ¶ˆæ¯:\n%s",e.getMessage()));
 		} 
 		
 	}
@@ -84,7 +84,7 @@ public class UserRegister extends JFrame{
 		alertString.setText(content);
 	    dialog.setVisible(true);			
 	}
-	//ÊÂ¼ş´¦ÀíÄÚ²¿Àà
+	//äº‹ä»¶å¤„ç†å†…éƒ¨ç±»
 	private class EventHandler implements ActionListener{	
 		public void actionPerformed(ActionEvent e){
 			if(e.getSource()==dialogButton){
@@ -95,17 +95,17 @@ public class UserRegister extends JFrame{
 			if(e.getSource()==submit){				
 				///container.setVisible(false);	
 				if(userName.getText().equals("")){
-					alertString.setText("               ÇëÊäÈëÓÃ»§Ãû!");
+					alertString.setText("               è¯·è¾“å…¥ç”¨æˆ·å!");
 				    dialog.setVisible(true);	
 					return;
 				}
 				if(password.getText().equals("")||secPassword.getText().equals("")){
-					alertString.setText("               ÇëÊäÈëÃÜÂë!");
+					alertString.setText("               è¯·è¾“å…¥å¯†ç !");
 					dialog.setVisible(true);
 					return;
 				}
 				if(!password.getText().equals(secPassword.getText())){
-				    alertString.setText("               Á½´ÎÃÜÂë²»Ò»ÖÂ!");
+				    alertString.setText("               ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´!");
 				    dialog.setVisible(true);
                     return;					
 				}
@@ -113,13 +113,13 @@ public class UserRegister extends JFrame{
 					UserModel user=new UserModel(userName.getText(),password.getText());
 					//userRegister=new UserRegisterDb();
 					if(userRegister.isExist(user)){
-						alertString.setText("               ÓÃ»§ÃûÒÑ±»×¢²á!");
+						alertString.setText("               ç”¨æˆ·åå·²è¢«æ³¨å†Œ!");
 						dialog.setVisible(true);
 						
 						return;	
 					}
 					if(userRegister.addUser(user)==1){
-						alertString.setText("               ×¢²áÓÃ»§³É¹¦!");
+						alertString.setText("               æ³¨å†Œç”¨æˆ·æˆåŠŸ!");
 				        dialog.setVisible(true);
 						dialog.setVisible(false);
 						UserRegister.this.setVisible(false);

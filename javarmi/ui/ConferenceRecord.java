@@ -15,7 +15,7 @@ public class ConferenceRecord extends JFrame{
 	private ConferenceInterface getData;
 
 	public ConferenceRecord(int userid){
-		super("查看已添加的会议记录");
+		super("鏌ョ湅宸叉坊鍔犵殑浼氳璁板綍");
 		this.setBounds(570,100,700,500);
 		Vector<Vector<String>> rowData=null;
 		try{
@@ -25,7 +25,7 @@ public class ConferenceRecord extends JFrame{
 		}
 		catch(Exception e){
 			
-			//alert(String.format("异常消息:\n%s",e.getMessage()));
+			//alert(String.format("寮傚父娑堟伅:\n%s",e.getMessage()));
 		} 
 		
 		
@@ -47,7 +47,7 @@ public class ConferenceRecord extends JFrame{
 		this.addWindowListener(new WindowAdapter() {  
               public void windowClosing(WindowEvent e) {  
                     ConferenceRecord.this.setVisible(false);
-                               //加入动作   
+                               //鍔犲叆鍔ㄤ綔   
      		   }  
   
          });

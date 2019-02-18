@@ -30,10 +30,10 @@ public class UserLogin extends JFrame{
 	private JButton registerButton;
 	private ConferenceInterface userLogin;
 	public UserLogin(){		
-		super("ÓÃ»§µÇÂ¼");
+		super("ç”¨æˆ·ç™»å½•");
 		container=this.getContentPane();
 		this.setBounds(570,100,400,370);
-		this.add("South",new JPanel(new GridLayout(1,3)).add(new JLabel("                                           »¶Ó­Ê¹ÓÃ»áÒéÊÒÔ¤Ô¼ÏµÍ³")));
+		this.add("South",new JPanel(new GridLayout(1,3)).add(new JLabel("                                           æ¬¢è¿ä½¿ç”¨ä¼šè®®å®¤é¢„çº¦ç³»ç»Ÿ")));
                		
 	    contentPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
 		userName=new JTextField(20);
@@ -41,22 +41,22 @@ public class UserLogin extends JFrame{
 		//secPassword=new JPasswordField(20);
 		password.addActionListener(new EventHandler());
 		//secPassword.addActionListener(new EventHandler());
-		contentPanel.add(new JLabel("ÓÃ»§Ãû"));
+		contentPanel.add(new JLabel("ç”¨æˆ·å"));
 		contentPanel.add(new JLabel("                                                "));
 		contentPanel.add(userName);
-		contentPanel.add(new JLabel("*ÇëÊäÈëÓÃ»§Ãû                       "));
-		contentPanel.add(new JLabel("ÃÜÂë")); 
+		contentPanel.add(new JLabel("*è¯·è¾“å…¥ç”¨æˆ·å                       "));
+		contentPanel.add(new JLabel("å¯†ç ")); 
 		contentPanel.add(new JLabel("                                               "));
 		contentPanel.add(password);
-		contentPanel.add(new JLabel("*ÇëÊäÈëÃÜÂë             "));
-		//contentPanel.add(new JLabel("È·ÈÏÃÜÂë"));
+		contentPanel.add(new JLabel("*è¯·è¾“å…¥å¯†ç              "));
+		//contentPanel.add(new JLabel("ç¡®è®¤å¯†ç "));
 		//contentPanel.add(new JLabel("                                                    "));
 		//contentPanel.add(secPassword);
-		//contentPanel.add(new JLabel("*ÇëÔÙ´ÎÊäÈëÃÜÂë         "));
-		submit=new JButton("µÇÂ¼");
+		//contentPanel.add(new JLabel("*è¯·å†æ¬¡è¾“å…¥å¯†ç          "));
+		submit=new JButton("ç™»å½•");
 		submit.setBackground(Color.GREEN);
 		submit.addActionListener(new EventHandler());
-		registerButton=new JButton("×¢²áĞÂÓÃ»§");
+		registerButton=new JButton("æ³¨å†Œæ–°ç”¨æˆ·");
 		registerButton.setBackground(Color.RED);
 		registerButton.addActionListener(new EventHandler());
 		contentPanel.add(submit);
@@ -66,11 +66,11 @@ public class UserLogin extends JFrame{
 		this.setVisible(true);
 		this.setResizable(false);
 		alertString=new JLabel("");
-		dialog=new JDialog(UserLogin.this,"ÌáÊ¾",true);
+		dialog=new JDialog(UserLogin.this,"æç¤º",true);
 		dialog.setBounds(590,130,265,220);
 		dialog.setResizable(false);
 		dialog.add(alertString);
-		dialogButton=new JButton("È·¶¨");
+		dialogButton=new JButton("ç¡®å®š");
 		dialogButton.addActionListener(new EventHandler());
         
 		belowPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -87,7 +87,7 @@ public class UserLogin extends JFrame{
 		}
 		catch(Exception e){
 			
-			alert(String.format("Òì³£ÏûÏ¢:\n%s",e.getMessage()));
+			alert(String.format("å¼‚å¸¸æ¶ˆæ¯:\n%s",e.getMessage()));
 		} 
 		
 		
@@ -98,7 +98,7 @@ public class UserLogin extends JFrame{
 		alertString.setText(content);
 	    dialog.setVisible(true);			
 	}
-	//ÊÂ¼ş´¦ÀíÄÚ²¿Àà
+	//äº‹ä»¶å¤„ç†å†…éƒ¨ç±»
 	private class EventHandler implements ActionListener{	
 		public void actionPerformed(ActionEvent e){
 			if(e.getSource()==dialogButton){
@@ -115,12 +115,12 @@ public class UserLogin extends JFrame{
 			if(e.getSource()==submit){				
 				///container.setVisible(false);	
 				if(userName.getText().equals("")){
-					alertString.setText("               ÇëÊäÈëÓÃ»§Ãû!");
+					alertString.setText("               è¯·è¾“å…¥ç”¨æˆ·å!");
 				    dialog.setVisible(true);	
 					return;
 				}
 				if(password.getText().equals("")){
-					alertString.setText("               ÇëÊäÈëÃÜÂë!");
+					alertString.setText("               è¯·è¾“å…¥å¯†ç !");
 					dialog.setVisible(true);
 					return;
 				}
@@ -130,14 +130,14 @@ public class UserLogin extends JFrame{
 						
 					
 						if((user=userLogin.login(user))!=null){
-							alertString.setText(String.format("               µÇÂ¼³É¹¦!id:%s",user.getId()));
+							alertString.setText(String.format("               ç™»å½•æˆåŠŸ!id:%s",user.getId()));
 							dialog.setVisible(true);      
                             dialog.setVisible(false);
                             UserLogin.this.setVisible(false);
                             new UserMainView(user);							
 						}
 						else{
-							alertString.setText("               ÓÃ»§Ãû»òÕßÃÜÂë´íÎó!");
+							alertString.setText("               ç”¨æˆ·åæˆ–è€…å¯†ç é”™è¯¯!");
 							dialog.setVisible(true);   
 							
 						}
