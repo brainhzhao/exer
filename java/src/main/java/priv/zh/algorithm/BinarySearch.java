@@ -23,9 +23,13 @@ public class BinarySearch{
         }
         return position;
     }
-    public static void main(String[] args) {
-        int[] orderList={2,3,5,6,7,8,12,3434,54454,3434343,34343232,93232323};
-        System.out.println(BinarySearch.binarySearch(orderList, 4534, 0, orderList.length-1));
-       
+    public static void main(String[] args) throws Exception {
+        long startTime=System.currentTimeMillis();
+        //System.out.println(BinarySearch.binarySearch(orderList, 4534, 0, orderList.length-1));
+        int a=-1;
+        Thread.sleep(1000);
+        System.out.println(Integer.toBinaryString(a));
+        System.out.println(Integer.toBinaryString(a>>>1));
+        System.out.println(System.currentTimeMillis()-startTime);
     }
 }
