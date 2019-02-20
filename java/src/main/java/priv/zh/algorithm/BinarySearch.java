@@ -1,6 +1,5 @@
 package priv.zh.algorithm;
 
-import java.util.Arrays;
 
 /*
 * @author 赵恒
@@ -22,14 +21,5 @@ public class BinarySearch{
            return binarySearch(orderList, value,start,position-1);
         }
         return position;
-    }
-    public static void main(String[] args) throws Exception {
-        long startTime=System.currentTimeMillis();
-        //System.out.println(BinarySearch.binarySearch(orderList, 4534, 0, orderList.length-1));
-        int a=-1;
-        Thread.sleep(1000);
-        System.out.println(Integer.toBinaryString(a));
-        System.out.println(Integer.toBinaryString(a>>>1));
-        System.out.println(System.currentTimeMillis()-startTime);
     }
 }

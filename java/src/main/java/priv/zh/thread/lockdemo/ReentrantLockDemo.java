@@ -21,19 +21,11 @@ public class ReentrantLockDemo {
     public void exec(){
         final Count ct=new Count();
         for (int i=0;i<2;i++){
-            new Thread(){
-                public void run(){
-                    ct.get();
-                }
-            }.start();
+            new Thread(()->{ct.get();}).start();
         }
 
         for (int i=0;i<2;i++){
-            new Thread(){
-                public void run(){
-                    ct.put();
-                }
-            }.start();
+            new Thread(()->{ct.put();}).start();
         }
     }
 
