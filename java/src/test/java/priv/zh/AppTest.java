@@ -17,6 +17,8 @@ import org.junit.Test;
 import priv.zh.algorithm.BinarySearch;
 import priv.zh.base.keyword.FinalDemo;
 import priv.zh.lambda.LambdaDemo;
+
+import static priv.zh.dbframe.mybatis.MybatisDemo.generateDynamicSql;
 import static priv.zh.dbframe.mybatis.MybatisDemo.getSqlSessionFactoryByXml;
 
 import java.util.HashMap;
@@ -80,6 +82,7 @@ public class AppTest
      */
     @Test
     public void mybatisDemo(){
+        org.apache.ibatis.logging.LogFactory.useLog4JLogging();
         SqlSessionFactory ssf=getSqlSessionFactoryByXml("mybatis/mybatis-cfg.xml");
         SqlSession ss=ssf.openSession();
         try {
@@ -94,6 +97,10 @@ public class AppTest
         }
     }
 
+    @Test
+    public void getDynamicSql(){
+       System.out.println(generateDynamicSql());
+    }
     /*
     * lambda demo test
      */

@@ -6,7 +6,7 @@
 <mapper namespace="StudentMapper">
   <select id="selectStudent" parameterType="map" resultType="Map">
     select stuid id,stuname name,sex,age from student
-    where stuid=${stuid}
+    where stuid=#{stuid}
     <if test="stuname!=null">
        and stuname like '%${stuname}%'
     </if>
