@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+   <bena name="/name" class="priv.zh.controller.HelloWorldController"></bean>
+   
+   <!--定义映射器将bean的name作为url查找，需要在配置handle时指明name-->
+   <bena class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+
+   <!--SimpleControllerHandlerAdapter是一个处理器适配器-->
+   <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+
+   <!--视图解析器-->
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+</beans>
