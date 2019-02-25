@@ -14,10 +14,10 @@ public class HelloWorldController implements Controller{
             response.getWriter().println("HelloWorld");
         } catch (Exception e) {
             
-        }
+        }  
         
         ModelAndView mav=new ModelAndView();
-        mav.setViewName("/WEB-INF/index.jsp");
+        mav.setViewName("index");
         return mav;
     }
 }
