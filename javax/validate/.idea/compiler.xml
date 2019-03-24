@@ -9,8 +9,5 @@
         <module name="validate" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="validate" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,6 +2,7 @@ package priv.zh.bean;
 
 
 import priv.zh.annotation.ListNotHasNull;
+import priv.zh.annotation.StudentValidator;
 
 import java.io.Serializable;
 
