@@ -14,11 +14,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:*.xml");
-        for (int i = 0; i <= 10; i++) {
-            HelloWorldService service = (HelloWorldService) context.getBean("constructHelloWorldService");
-            service.addCount();
-        }
+        // ApplicationContext context = new ClassPathXmlApplicationContext("classpath:*.xml");
+        // for (int i = 0; i <= 10; i++) {
+        //     HelloWorldService service = (HelloWorldService) context.getBean("constructHelloWorldService");
+        //     service.addCount();
+        // }
 
         /*
          * JasperCompileManager.compileReportToFile(
@@ -26,5 +26,6 @@ public class App {
          * "/media/heng/SilenceZhao/code/java/zhdemo/demo1/target/classes/PISA_SJBL.jasper"
          * ); System.out.println("ok");
          */
+
     }
 }

@@ -6,3 +6,6 @@ java/.idea
 .vscode
 java/java.iml
 javax/validate/target
+
+# shiro
+shiro/shirodemo/.settings

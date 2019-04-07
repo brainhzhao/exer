@@ -16,6 +16,10 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
+
+  <jsp-property-group>
+    <el-ignored>false</el-ignored>
+  </jsp-property-group>
 </web-app>

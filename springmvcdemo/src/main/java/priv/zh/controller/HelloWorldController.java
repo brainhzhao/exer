@@ -2,9 +2,11 @@ package priv.zh.controller;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 public class HelloWorldController implements Controller{
 
@@ -15,7 +17,6 @@ public class HelloWorldController implements Controller{
         } catch (Exception e) {
             
         }  
-        
         ModelAndView mav=new ModelAndView();
         mav.setViewName("index");
         return mav;
