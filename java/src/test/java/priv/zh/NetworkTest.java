@@ -29,11 +29,17 @@ public class NetworkTest {
                         PrintWriter pw =new PrintWriter(outStream);
                         Scanner scann= new Scanner(ioStream);
                         Scanner outScan = new Scanner(System.in);
-                        System.out.println("accept handle from "+clientSocket.getInetAddress().toString()+":"+clientSocket.getPort()+",say:"+ scann.nextLine());
-                        while (!scann.nextLine().equals("bye")){
-                            System.out.println("accept handle from "+clientSocket.getInetAddress().toString()+":"+clientSocket.getPort()+",say:"+ scann.nextLine());
-                            System.out.print("pls input message send to "+clientSocket.getPort()+":");
-                            pw.println(outScan.nextLine());
+                        while (true){
+                            serverMessage=scann.nextLine();
+                            if(serverMessage.equals("bye")){
+                                pw.println("ok");
+                                pw.flush();
+                                break;
+                            }
+                            System.out.println("accept handle from "+clientSocket.getInetAddress().toString()+":"+clientSocket.getPort()+",say:"+ serverMessage);
+                            //System.out.print("pls input message send to "+clientSocket.getPort()+":");
+                            //String msg=outScan.nextLine();
+                            pw.println("1234");
                             pw.flush();
                         }
                         System.out.println("server end connection");
@@ -74,6 +80,7 @@ public class NetworkTest {
 
     @Test
     public  void client(){
+         String[] msgArr={"bye","我是客户端","你好，哈哈哈","1314"};
          InputStream in = null;
          PrintWriter pw = null;
          BufferedReader br = null;
@@ -86,10 +93,13 @@ public class NetworkTest {
              pw = new PrintWriter(socket.getOutputStream());
              pw.println("Hello World");
              pw.flush();
-             while (!(serverMessage=br.readLine()).equals("ok")){
+             while (true){
+                 if((serverMessage=br.readLine()).equals("ok")){
+                     break;
+                 }
                  System.out.println("server reponse:"+serverMessage);
-                 System.out.print("pls input message:");
-                 pw.println(clientInput.nextLine());
+                 //System.out.print("pls input message:");
+                 pw.println(msgArr[(int)Math.ceil(Math.random()*10)%msgArr.length]);
                  pw.flush();
              }
              System.out.println("end connection");
