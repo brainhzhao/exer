@@ -114,7 +114,6 @@ public class AppTest
     */
     @Test
     public void collectionDemo(){
-
+         System.out.println("123".equals(null));
     }
-
 }

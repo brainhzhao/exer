@@ -2,10 +2,13 @@ package priv.zh;
 
 import org.junit.Test;
 
+import priv.zh.designpattern.command.*;
 import priv.zh.designpattern.observer.AmericanObserver;
 import priv.zh.designpattern.observer.ChineseObserver;
 import priv.zh.designpattern.observer.RussianObserver;
 import priv.zh.designpattern.observer.Subject;
+
+import static priv.zh.designpattern.command.Invoker.*;
 
 /**
  * @author zhaoheng
@@ -40,5 +43,17 @@ public class DesignPatternTest{
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * @author zhaoheng
+     * 命令模式
+     */
+    @Test
+    public void commandPattern() throws Exception{
+        CommandReceiver receiver = (CommandReceiver) Class.forName("priv.zh.designpattern.command.JapaneseReceiver").newInstance();
+        Command command = (Command)Class.forName("priv.zh.designpattern.command.CommandChinese").newInstance();
+        execute(command,receiver);
+
     }
 }

@@ -10,6 +10,16 @@ public class Student implements Serializable{
     private String sex;
     private String age;
 
+    public Student(String id,String name,String sex,String age){
+        this.id=id;
+        this.name=name;
+        this.sex=sex;
+        this.age=age;
+    }
+
+    public Student(){
+        this("1","zhaoheng","男","23");
+    }
     /**
      * @return the id
      */
@@ -67,6 +77,6 @@ public class Student implements Serializable{
     }
 
     public String toString(){
-        return "name:"+this.name+",age:"+this.age+",sex:"+this.sex;
+        return "name:"+name;
     }
 }

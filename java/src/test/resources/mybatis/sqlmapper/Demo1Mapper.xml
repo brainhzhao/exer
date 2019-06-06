@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="StudentMapper">
+  <select id="selectStudent" parameterType="map" resultType="Map">
+    select stuid id,stuname name,sex,age from student
+    where stuid=#{stuid}
+    <if test="stuname!=null">
+       and stuname like '%${stuname}%'
+    </if>
+  </select>
+</mapper>
