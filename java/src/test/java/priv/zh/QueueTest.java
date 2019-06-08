@@ -53,8 +53,9 @@ public class QueueTest {
         new Thread(()->{
            try{
                for(int i=0;i<=9;i++) {
-                   synchronisionBlockQueue.offer(new Student("" + i, "赵恒" + i, "i",""));
                    System.out.println("生产者放入:"+"赵恒"+i);
+                   synchronisionBlockQueue.offer(new Student("" + i, "赵恒" + i, "i",""),5,TimeUnit.SECONDS);
+
                    Thread.sleep(2000);
                }
 
@@ -72,7 +73,5 @@ public class QueueTest {
                 ex.getStackTrace();
             }
         }).start();
-
-
     }
 }
