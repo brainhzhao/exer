@@ -1,6 +1,5 @@
 package priv.zh;
 
-import com.mysql.jdbc.CacheAdapter;
 import org.junit.Test;
 import priv.zh.model.Student;
 
@@ -14,24 +13,22 @@ import java.util.concurrent.TimeUnit;
 public class QueueTest {
 
     @Test
-    public void arrayBlockingQueue(){
-        try{
+    public void arrayBlockingQueue() {
+        try {
             final BlockingQueue<Student> studentsArrayBlockingQueue = new ArrayBlockingQueue<>(8);
-            new Thread(()->{
-                    for(int i=0;i<=10;i++){
-                        studentsArrayBlockingQueue.offer(new Student(""+i,"赵恒"+i,"男","2"+i));
-                    }
-
+            new Thread(() -> {
+                for (int i = 0; i <= 10; i++) {
+                    studentsArrayBlockingQueue.offer(new Student("" + i, "赵恒" + i, "男", "2" + i));
+                }
 
             }).start();
-            new Thread(()->{
+            new Thread(() -> {
                 Collection<Student> list = new ArrayList<>();
-                try{
+                try {
                     Thread.sleep(5000);
-                    studentsArrayBlockingQueue.drainTo(list,2);
+                    studentsArrayBlockingQueue.drainTo(list, 2);
                     System.out.println(studentsArrayBlockingQueue.toString());
-                }catch (InterruptedException ex){
-
+                } catch (InterruptedException ex) {
 
                 }
             }).start();
@@ -41,35 +38,35 @@ public class QueueTest {
             System.out.println(studentsArrayBlockingQueue.size());
             System.out.println(studentsArrayBlockingQueue.remainingCapacity());
 
-        }catch (InterruptedException ex){
+        } catch (InterruptedException ex) {
             System.err.println(ex.getMessage());
         }
     }
 
     @Test
-    public void synchronisionQueue(){
-        final  BlockingQueue<Student> synchronisionBlockQueue = new SynchronousQueue<>();
+    public void synchronisionQueue() {
+        final BlockingQueue<Student> synchronisionBlockQueue = new SynchronousQueue<>();
 
-        new Thread(()->{
-           try{
-               for(int i=0;i<=9;i++) {
-                   System.out.println("生产者放入:"+"赵恒"+i);
-                   synchronisionBlockQueue.offer(new Student("" + i, "赵恒" + i, "i",""),5,TimeUnit.SECONDS);
+        new Thread(() -> {
+            try {
+                for (int i = 0; i <= 9; i++) {
+                    System.out.println("生产者放入:" + "赵恒" + i);
+                    synchronisionBlockQueue.offer(new Student("" + i, "赵恒" + i, "i", ""), 5, TimeUnit.SECONDS);
 
-                   Thread.sleep(2000);
-               }
+                    Thread.sleep(2000);
+                }
 
-           } catch (InterruptedException ex){
-               ex.getStackTrace();
-           }
+            } catch (InterruptedException ex) {
+                ex.getStackTrace();
+            }
         }).start();
 
-        new Thread(()->{
+        new Thread(() -> {
             try {
                 for (int i = 0; i <= 9; i++) {
                     System.out.println("消费者获取到:" + synchronisionBlockQueue.take());
                 }
-            }catch (InterruptedException ex){
+            } catch (InterruptedException ex) {
                 ex.getStackTrace();
             }
         }).start();
