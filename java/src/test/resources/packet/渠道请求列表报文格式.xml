@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<sys-header></sys-header>
+	<app-header></app-header>
+	<local-header></local-header>
+	<body>
+		<SERVICE_ID>searchOrderList</SERVICE_ID>
+		<CREATE_USER_ID>唯一标识发起者的ID</CREATE_USER_ID>
+		<COMPANY>法人</COMPANY>
+		<ORIGIN_CHANNEL>投诉事件原始入口渠道</ORIGIN_CHANNEL>
+		<COMPLAINT_START_DATE>投诉事件开始日期(非必输，输入时根据日期来筛选数据)</COMPLAINT_START_DATE>
+		<COMPLAINT_END_DATE>投诉事件结束日期(非必输，输入时根据日期来筛选数据)</COMPLAINT_END_DATE>
+	</body>
+</service>

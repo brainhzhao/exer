@@ -80,46 +80,6 @@ public class NetworkTest {
 
     @Test
     public  void client(){
-         String[] msgArr={"bye","我是客户端","你好，哈哈哈","1314"};
-         InputStream in = null;
-         PrintWriter pw = null;
-         BufferedReader br = null;
-         Socket socket = null;
-         String serverMessage="";
-         Scanner clientInput = new Scanner(System.in);
-         try{
-             socket = new Socket("localhost",65534);
-             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             pw = new PrintWriter(socket.getOutputStream());
-             pw.println("Hello World");
-             pw.flush();
-             while (true){
-                 if((serverMessage=br.readLine()).equals("ok")){
-                     break;
-                 }
-                 System.out.println("server reponse:"+serverMessage);
-                 //System.out.print("pls input message:");
-                 pw.println(msgArr[(int)Math.ceil(Math.random()*10)%msgArr.length]);
-                 pw.flush();
-             }
-             System.out.println("end connection");
-         }catch (Exception ex){
-             System.out.println(ex.getMessage());
-         }finally {
-             if(in!=null){
-                 try{
-                     in.close();
-                 }catch (Exception ex){
-                     System.out.println(ex.getMessage());
-                 }
-             }
-             if(socket!=null){
-                 try{
-                     socket.close();
-                 }catch (Exception ex){
-                     System.out.println(ex.getMessage());
-                 }
-             }
-         }
+
     }
 }

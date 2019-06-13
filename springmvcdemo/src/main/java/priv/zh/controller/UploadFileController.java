@@ -12,10 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.context.WebApplicationContext;
 
 import org.springframework.ui.Model;
 
+import priv.zh.interfaces.Sleepable;
 import priv.zh.service.*;
 /**
  * @author zhaoheng
@@ -68,6 +70,8 @@ import priv.zh.service.*;
     public String toUploadPage(Model model,HttpServletRequest request){
         ApplicationContext conetxt=(WebApplicationContext) request.getAttribute("org.springframework.web.servlet.DispatcherServlet.CONTEXT");
         conetxt.publishEvent(new LogEvent(request.getHeaderNames()));
+        Sleepable obj=(Sleepable)conetxt.getBean("humanProxy");
+        obj.sleep();
         model.addAttribute("name", "赵恒");
         return "index";
     }

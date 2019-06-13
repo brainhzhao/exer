@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<sys-header></sys-header>
+	<app-header></app-header>
+	<local-header></local-header>
+	<body>
+		<SERVICE_ID>searchOrderDetail</SERVICE_ID>
+		<ORDER_ID>工单编号</ORDER_ID>
+		<ORIGIN_CHANNEL>投诉事件原始入口渠道</ORIGIN_CHANNEL>
+	</body>
+</service>

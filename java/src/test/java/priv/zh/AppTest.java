@@ -21,8 +21,11 @@ import priv.zh.lambda.LambdaDemo;
 import static priv.zh.dbframe.mybatis.MybatisDemo.generateDynamicSql;
 import static priv.zh.dbframe.mybatis.MybatisDemo.getSqlSessionFactoryByXml;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.BlockingQueue;
 
 /**
  * Unit test for simple App.
@@ -115,5 +118,36 @@ public class AppTest
     @Test
     public void collectionDemo(){
          System.out.println("123".equals(null));
+    }
+
+
+    @Test
+    public void classLoad() throws Exception{
+        BlockingQueue<Integer> queue =  (BlockingQueue<Integer>)parseBlockingQueue("java.util.concurrent.ArrayBlockingQueue|16");
+
+    }
+
+    public Object parseBlockingQueue(String classFullName){
+        try{
+            if(classFullName.contains("ArrayBlockingQueue")){
+                int size = Integer.parseInt(classFullName.split("\\|")[1]);
+                return Class.forName(classFullName.split("\\|")[0]).getDeclaredConstructor(int.class).newInstance(size);
+            }
+            return Class.forName(classFullName).newInstance();
+        } catch (ClassNotFoundException ex){
+           // logger.error("ClassNotFound:"+ex.getMessage());
+            return null;
+        } catch (IllegalAccessException ex){
+          //  logger.error("不合法的方法"+ex.getMessage());
+            return null;
+        } catch (InstantiationException ex){
+           // logger.error("无法实例化对象"+ex.getMessage());
+            return null;
+        } catch (NoSuchMethodException ex){
+           // logger.error("没有找到合适的构造器"+ex.getMessage());
+            return  null;
+        } catch (InvocationTargetException ex){
+            return null;
+        }
     }
 }

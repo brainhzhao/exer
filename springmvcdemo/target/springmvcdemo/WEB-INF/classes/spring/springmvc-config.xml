@@ -47,4 +47,18 @@
        </property>
    </bean>
    <bean id="log" class="priv.zh.service.Log"/>
+   <bean id="sleepHelper" class="priv.zh.advisor.SleepHelper"/>
+   <bean id="human" class="priv.zh.service.Human"/>
+   <bean id="pointCut" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+       <property name="pattern" value=".*sleep"/>
+   </bean>
+   <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+     <property name="advice" ref="sleepHelper"/>
+     <property name="pointcut" ref="pointCut"/>
+   </bean>
+   <bean id="humanProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+      <property name="target" ref="human"/>
+      <property name="interceptorNames" value="advisor"/>
+      <property name="proxyInterfaces" value="priv.zh.interfaces.Sleepable"/>
+   </bean>
 </beans>
